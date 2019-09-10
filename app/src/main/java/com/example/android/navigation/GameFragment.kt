@@ -58,7 +58,6 @@ class GameFragment : Fragment() {
     )
 
 
-
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
@@ -100,13 +99,19 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
+//                        view.findNavController()
+//                                .navigate(R.id.action_gameFragment_to_gameWonFragment)
+                        // Using directions to navigate to the GameWonFragment
                         view.findNavController()
-                                .navigate(R.id.action_gameFragment_to_gameWonFragment)
+                                .navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment())
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
+//                    view.findNavController()
+//                            .navigate(R.id.action_gameFragment_to_gameOverFragment)
+                    // Using directions to navigate to the GameOverFragment
                     view.findNavController()
-                            .navigate(R.id.action_gameFragment_to_gameOverFragment)
+                            .navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
                 }
             }
         }
